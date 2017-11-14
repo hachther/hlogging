@@ -10,7 +10,7 @@ LOGGING_TYPE = (
 
 
 class LoggingUser(models.Model):
-    user = models.ForeignKey(getattr(settings, 'AUTH_USER_MODEL'))
+    user = models.ForeignKey(getattr(settings, 'AUTH_USER_MODEL'), limit_choices_to={'is_staff': True})
     chat_id = models.IntegerField(_('chat id'), null=True, blank=True)
     type = models.CharField(_('type'), max_length=20, choices=LOGGING_TYPE)
 
