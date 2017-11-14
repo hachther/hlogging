@@ -14,6 +14,9 @@ class LoggingUser(models.Model):
     chat_id = models.IntegerField(_('chat id'), null=True, blank=True)
     type = models.CharField(_('type'), max_length=20, choices=LOGGING_TYPE)
 
+    def __str__(self):
+        return str(self.user)
+
 
 class LoggingMessage(models.Model):
     user = models.ForeignKey(LoggingUser)
