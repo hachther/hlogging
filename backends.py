@@ -9,4 +9,4 @@ class TelegramBackend(object):
             message.user = user
             message.save()
             bot = telepot.Bot(getattr(settings, 'HLOGGING_TELEGRAM_TOKEN'))
-            bot.sendMessage(user.chat_id, message.text)
+            bot.sendMessage(user.chat_id, message.text[:4095])
